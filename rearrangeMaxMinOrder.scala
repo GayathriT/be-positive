@@ -9,9 +9,9 @@ object rearrangeMaxMinOrder {
     
         println("Method 1")
         val res = rearrangeMaxMin(input.sorted)
-       // res.map(e=> print(s"${e} || "))//.foreach(println)
+       res.map(e=> print(s"${e} || "))//.foreach(println)
        println
-        println("Method 2")
+        println("Method 2 not working ")
         val res1 = rearrangeMaxMin_1(input.sorted)
         res1.map(e=> print(s"${e} || "))//.foreach(println)
         
@@ -32,27 +32,27 @@ object rearrangeMaxMinOrder {
   
   def rearrangeMaxMin_1(inputArr: Array[Int]): Array[Int] = {
   
-    inputArr.foreach(println)
-  val tempArr = inputArr.clone() 
+    
+  val tempArr = inputArr
+  tempArr.foreach(println)
   val len = inputArr.length
   var small = 0
   var large = len -1
   var flag = true
   for ( i <- 0 until len ) {
-    if (flag == true ) {
-      
+    if (flag) {    
       inputArr(i) = tempArr(large)
       large = large -1
     }
     else
-    {
-      small = small + 1
+    {      
       inputArr(i) = tempArr(small)
-      
-      flag = false
+      small = small + 1      
     }        
+    flag = !flag
+    
   }
-  inputArr
+  tempArr
   
   }
   
